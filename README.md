@@ -9,10 +9,9 @@ Pour ce faire, nous avons utilisé le jeu de données ISCX 2017 collecté par l'
 
 L'ensemble de données d'origine comprend 1580215 observations collectées en cinq jours avec une diversité d’attaques, dont 225745 observations le dernier pour l’attaque DDoS, et 85 fonctionnalités. Nous échantillonnons les données au hasard 10 fois avec la validation croisée pour obtenir 10 sous-échantillons de données permettant de créer des modèles de prédiction utilisant l’algorithme d’apprentissage profond, avec une architecture séquentielle.
 Les modèles obtenus sont comparés à d'autres techniques proposés, pour évaluer les précisions sur la base de la matrice de confusion. La précision trouvée dans notre modèle est 97\%.
+
 En conséquence, ce document évalue les performances d'un ensemble complet de fonctionnalités de trafic réseau avec l'algorithme d'apprentissage profond, afin de détecter l'attaque dans un réseau informatique.
 
-# Technologies et Mise en oeuvre
-Modèle d'apprentissage en profondeur VGG-19 formé à l'aide de l'ensemble de données de l’Institut Canadien pour la Cybersécurité ISCx 2017
 # Framework et API
 •	Tensorflow-GPU
 •	Keras
