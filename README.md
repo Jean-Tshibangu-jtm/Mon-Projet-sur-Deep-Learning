@@ -6,6 +6,7 @@ Avec la croissance exponentielle de la taille des réseaux informatiques et des 
 
 Par conséquent, l'objectif de ce travail est d'appliquer une méthode de modélisation de données de pointe d’un système de détection d’intrusion pour prédire une détection d’intrusion dans un environnement réseau à l'aide de l’algorithme de l’apprentissage profond  comme outil de prédiction de l’attaque.
 Pour ce faire, nous avons utilisé le jeu de données ISCX 2017 collecté par l'Institut canadien de cybersécurité. Cet ensemble de données contient sept flux de réseau d’attaques bénignes et communes, qui répond aux critères du monde réel, et est publiquement disponible. 
+
 L'ensemble de données d'origine comprend 1580215 observations collectées en cinq jours avec une diversité d’attaques, dont 225745 observations le dernier pour l’attaque DDoS, et 85 fonctionnalités. Nous échantillonnons les données au hasard 10 fois avec la validation croisée pour obtenir 10 sous-échantillons de données permettant de créer des modèles de prédiction utilisant l’algorithme d’apprentissage profond, avec une architecture séquentielle.
 Les modèles obtenus sont comparés à d'autres techniques proposés, pour évaluer les précisions sur la base de la matrice de confusion. La précision trouvée dans notre modèle est 97\%.
 En conséquence, ce document évalue les performances d'un ensemble complet de fonctionnalités de trafic réseau avec l'algorithme d'apprentissage profond, afin de détecter l'attaque dans un réseau informatique.
