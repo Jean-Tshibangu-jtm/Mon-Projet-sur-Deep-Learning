@@ -2,7 +2,7 @@
 """
 Created on Sun Oct 27 11:04:55 2019
 
-@author: X240
+@author: jean_tshibangu
 """
 import pandas as pd
 import keras
