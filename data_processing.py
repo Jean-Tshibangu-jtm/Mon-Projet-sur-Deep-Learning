@@ -2,7 +2,7 @@
 """
 Created on Sun Oct 27 11:04:55 2019
 
-@author: TSHIBA-PC
+@author: jean_tshibangu
 """
 import statsmodels as stat
 #import seaborn as sbrn
