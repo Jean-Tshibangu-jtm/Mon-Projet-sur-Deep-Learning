@@ -1,6 +1,6 @@
 # Système de détection d'intrusion utilisant le Deep Learning
 
-# Abstract
+# Resumé
 
 Avec la croissance exponentielle de la taille des réseaux informatiques et des applications développées, l'augmentation significative des dommages potentiels pouvant être causée par le lancement d'attaques devient évidente. Concurremment, les systèmes de détection d'intrusion (IDS) et les systèmes de prévention d'intrusion (IPS) sont des outils de détection et défenses les plus importantes contre les attaques réseau sophistiquées, et en croissance constante. 
 
