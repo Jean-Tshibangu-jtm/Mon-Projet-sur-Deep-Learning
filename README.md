@@ -1,27 +1,27 @@
-# Système de détection d'intrusion utilisant le Deep Learning
+# Intrusion detection system using Deep Learning
 
-# Resumé
+# Abstract
 
-Avec la croissance exponentielle de la taille des réseaux informatiques et des applications développées, l'augmentation significative des dommages potentiels pouvant être causée par le lancement d'attaques devient évidente. Concurremment, les systèmes de détection d'intrusion (IDS) et les systèmes de prévention d'intrusion (IPS) sont des outils de détection et défenses les plus importantes contre les attaques réseau sophistiquées, et en croissance constante. 
+With the exponential growth in the size of computer networks and application development, the increasing threat of potential damage from cyberattacks becomes more evident. Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) are emerging as crucial elements in protecting against sophisticated network attacks, continually expanding their capabilities.
 
-Par conséquent, l'objectif de ce travail est d'appliquer une méthode de modélisation de données de pointe d’un système de détection d’intrusion pour prédire une détection d’intrusion dans un environnement réseau à l'aide de l’algorithme de l’apprentissage profond  comme outil de prédiction de l’attaque.
-Pour ce faire, nous avons utilisé le jeu de données ISCX 2017 collecté par l'Institut canadien de cybersécurité. Cet ensemble de données contient sept flux de réseau d’attaques bénignes et communes, qui répond aux critères du monde réel, et est publiquement disponible. 
+This work aims to apply an advanced data modeling method to intrusion detection system data, using deep learning algorithms as a predictive tool for attacks. We utilized the ISCX 2017 dataset provided by the Canadian Institute for Cybersecurity, consisting of seven streams of benign and common attack scenarios, reflecting real-world situations and publicly accessible.
 
-L'ensemble de données d'origine comprend 1580215 observations collectées en cinq jours avec une diversité d’attaques, dont 225745 observations le dernier pour l’attaque DDoS, et 85 fonctionnalités. Nous échantillonnons les données au hasard 10 fois avec la validation croisée pour obtenir 10 sous-échantillons de données permettant de créer des modèles de prédiction utilisant l’algorithme d’apprentissage profond, avec une architecture séquentielle.
-Les modèles obtenus sont comparés à d'autres techniques proposés, pour évaluer les précisions sur la base de la matrice de confusion. La précision trouvée dans notre modèle est 97\%.
+The original dataset comprises 1,580,215 observations over five days, encompassing a diversity of attacks, including 225,745 observations for DDoS attacks, with 85 features. We conducted ten random samplings with cross-validation to create ten data subsets and developed prediction models using deep learning algorithms with a sequential architecture.
 
-En conséquence, ce document évalue les performances d'un ensemble complet de fonctionnalités de trafic réseau avec l'algorithme d'apprentissage profond, afin de détecter l'attaque dans un réseau informatique.
+The obtained models are compared to other existing techniques by evaluating their accuracy using the confusion matrix. Our model demonstrates an accuracy of 97%.
 
-# Framework et API
+In conclusion, this document assesses the comprehensive performance of a set of network traffic features using deep learning algorithms to detect attacks in a computer network environment.
+
+# Framework and API
 •	Tensorflow-GPU
 •	Keras
-# Outils
+# Tools
 •	Anaconda (Python 3.6)
 •	Spyder, Jupyter 
-# Comment utiliser
-Téléchargez l'ensemble de données ISCX 2017 à partir du lien
+# How to use
+Download the ISCX 2017 dataset from the link
 https://www.unb.ca/cic/datasets/ids-2017.html
-# N.B : Si votre système est inadéquat, je vous demande humblement de vous arrêter ici car le programme ne fonctionnera pas efficacement et beaucoup de temps sera perdu.
-Nous avons deux fichiers : data_processing.py et construction_DeepLearning.py. Le premier fichier est utilisé pour le prétraitement de données, représentations graphiques, vérifications des attributs pertinents, et le second fichier comprend les codes pour la construction du modèle.
-Et vous pouvez commencer la formation.
-# BONNE CHANCE ! 
+# N.B: If your system is inadequate, I humbly ask you to stop here, as the program won't work efficiently and a lot of time will be wasted.
+We have two files: data_processing.py and construction_DeepLearning.py. The first file is used for data pre-processing, graphical representations, checking relevant attributes, and the second file contains the code for building the model.
+And now you can start training.
+# GOOD LUCK! 
