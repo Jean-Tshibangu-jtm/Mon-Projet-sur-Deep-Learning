@@ -1,95 +1,94 @@
 
-#  Deep Learning applied to Cybersecurity for the Network Intrusion Detection System
+# Deep Learning Applied to Cybersecurity for Intrusion Detection
 
-## 📌 Contexte
+## 📌 Context
 
-Face à la complexité croissante des réseaux informatiques et à la multiplication des menaces cyber, les outils traditionnels de détection d’intrusion (comme Snort ou Suricata) atteignent leurs limites. Leur dépendance aux signatures rend difficile la détection d’attaques inconnues (zero-day). C’est dans ce contexte que les techniques de **Deep Learning** se positionnent comme une alternative puissante, capable de détecter des anomalies complexes et d’apprendre à partir de vastes ensembles de données.
+With the increasing complexity of IT networks and the proliferation of cyber threats, traditional intrusion detection tools (like Snort or Suricata) are reaching their limits. Their dependency on signatures makes it difficult to detect unknown (zero-day) attacks. In this context, **Deep Learning techniques** emerge as a powerful alternative, capable of identifying complex anomalies and learning from large-scale datasets.
 
-## ❗ Problématique
+## ❗ Problem Statement
 
-Comment concevoir un modèle de détection d'intrusion capable de :
-- Détecter en **temps quasi réel** des attaques réseau, notamment **DDoS**, même si elles ne sont pas référencées dans une base de signatures ?
-- Exploiter efficacement un **volume massif de données réseau** avec des caractéristiques très variées ?
-- **Améliorer la précision** des détections par rapport aux méthodes classiques tout en **réduisant les faux positifs** ?
+How can we design an intrusion detection model that:
+- Detects network attacks (e.g., **DDoS**) in **near real-time**, even if they are not listed in a signature database?
+- Efficiently handles **massive volumes of heterogeneous network data**?
+- **Improves detection accuracy** compared to traditional methods while **reducing false positives**?
 
-## 🧪 Environnement de test (Testbed)
+## 🧪 Testbed Environment
 
-Le testbed repose sur une infrastructure simulée composée de deux réseaux :
-- Un **Attack Network** générant différents types d’attaques (Brute Force SSH, DDoS, Botnet, etc.).
-- Un **Victim Network** sécurisé, capturant le trafic réseau pendant **5 jours continus**.
+The testbed is based on a simulated infrastructure consisting of two networks:
+- An **Attack Network** generating various types of attacks (Brute Force SSH, DDoS, Botnet, etc.).
+- A **Victim Network** capturing network traffic continuously for **five days**.
 
-Les paquets réseau sont traités avec **CICFlowMeter** pour extraire 80+ caractéristiques statistiques.  
-Les fichiers `.pcap` sont convertis en `.csv` via cette solution Java, permettant l’analyse bidirectionnelle (BiFlow).
+Network packets are processed using **CICFlowMeter**, which extracts over 80 statistical features.  
+`.pcap` files are converted to `.csv` format via this Java tool, enabling bidirectional (BiFlow) flow analysis.
 
-## 📂 Description du dataset
+## 📂 Dataset Description
 
-- **Source** : [CICIDS 2017 - Canadian Institute for Cybersecurity](https://www.unb.ca/cic/datasets/ids-2017.html)  
-- **Volume** : 1 580 215 enregistrements  
-- **Type d’attaques** : DDoS, Brute Force, Botnet, Web Attack, Infiltration, etc.  
-- **Focus de l’étude** : Attaques **DDoS** détectées le **vendredi après-midi** (~225 745 exemples)  
-- **Format** : 83 colonnes extraites des flux réseau TCP/UDP (durée, tailles de paquets, intervalles, flags...)
+- **Source**: [CICIDS 2017 - Canadian Institute for Cybersecurity](https://www.unb.ca/cic/datasets/ids-2017.html)  
+- **Size**: 1,580,215 records  
+- **Attack types**: DDoS, Brute Force, Botnet, Web Attack, Infiltration, etc.  
+- **Focus of this study**: DDoS attacks detected on **Friday afternoon** (~225,745 samples)  
+- **Format**: 83 columns with TCP/UDP flow features (duration, packet sizes, intervals, flags...)
 
-## ⚙️ Technologies utilisées
+## ⚙️ Technologies Used
 
-- **Langage** : Python  
-- **Librairies** : `Pandas`, `NumPy`, `Matplotlib`, `Seaborn`, `Scikit-learn`, `Keras`, `TensorFlow`  
-- **IDE** : Jupyter Notebook, Spyder  
-- **Environnement** : Anaconda, Google Colab  
-- **Prétraitement** : CICFlowMeter, RFE pour la sélection de features
+- **Language**: Python  
+- **Libraries**: `Pandas`, `NumPy`, `Matplotlib`, `Seaborn`, `Scikit-learn`, `Keras`, `TensorFlow`  
+- **IDE**: Jupyter Notebook, Spyder  
+- **Environment**: Anaconda, Google Colab  
+- **Preprocessing**: CICFlowMeter, RFE for feature selection
 
-## 🧠 IA & Algorithmes utilisés
+## 🧠 AI & Algorithms Used
 
-### 🔍 Prétraitement
-- **Nettoyage et normalisation** des données
-- **Analyse des données manquantes** (aucune observée)
-- **Feature Selection** par **Recursive Feature Elimination (RFE)** pour extraire les attributs les plus pertinents :
+### 🔍 Preprocessing
+- **Data cleaning and normalization**
+- **Missing data analysis** (none found)
+- **Feature selection** using **Recursive Feature Elimination (RFE)**, selecting:
   - `Flow-Duration`
   - `Flow IAT Std`
   - `Average Packet Size`
   - `Bwd Packet Length Std`
 
-### 🏗️ Modèle IA : Deep Learning
-- **Architecture** : Modèle séquentiel Keras avec plusieurs couches denses
-- **Fonction de coût** : `binary_crossentropy`
-- **Optimiseur** : `Adam`
-- **Évaluation** : Matrice de confusion, précision, rappel, F1-score
-- **Hyperparamètres** :
+### 🏗️ Deep Learning Model
+- **Architecture**: Keras Sequential model with several dense layers
+- **Loss function**: `binary_crossentropy`
+- **Optimizer**: `Adam`
+- **Evaluation**: Confusion matrix, precision, recall, F1-score
+- **Hyperparameters**:
   - `Epochs = 120`
   - `Batch size = 1`
   - `Metrics = accuracy`
 
-## 📈 Résultats
+## 📈 Results
 
-| Mesure               | Résultat     |
-|----------------------|--------------|
-| Précision            | **97 %**     |
-| Détection DDoS       | Très fiable  |
-| Faux positifs        | Faibles      |
-| Avantage principal   | Détection anomalies complexes sans signatures |
+| Metric              | Result      |
+|---------------------|-------------|
+| Accuracy            | **97%**     |
+| DDoS Detection      | Very reliable |
+| False Positives     | Low         |
+| Main Advantage      | Detects complex anomalies without signatures |
 
 ## ✅ Contributions
 
-- Construction d’un **modèle de Deep Learning** pour la détection d’attaques réseau
-- **Utilisation d’un dataset réel et récent** avec divers scénarios d’intrusion
-- Comparaison avec des outils classiques (Snort, Suricata)
-- Reproductibilité assurée avec des scripts Python
+- Built a **Deep Learning-based intrusion detection model**
+- Used a **real and recent dataset** with diverse intrusion scenarios
+- Compared performance with traditional tools (Snort, Suricata)
+- Ensured reproducibility with complete Python scripts
 
-## 🚀 Perspectives
+## 🚀 Future Work
 
-- Intégration d’un système temps réel basé sur **Edge AI**
-- Amélioration des performances avec **CNN + LSTM**
-- Extension aux attaques de type malware, spyware et infiltration ciblée
-- Déploiement dans une architecture **SIEM** (Splunk, ELK)
-
+- Integrate a real-time system based on **Edge AI**
+- Enhance performance using **CNN + LSTM**
+- Extend detection to malware, spyware, and targeted infiltration
+- Deploy into a **SIEM architecture** (Splunk, ELK)
 
 ---
 
-## 📝 Remarque importante
+## 📝 Important Note
 
-> **N.B** : Si votre système est insuffisant, je vous recommande humblement de ne pas aller plus loin, car le programme risque de ne pas fonctionner efficacement et vous risquez de perdre beaucoup de temps.
+> **N.B**: If your system is inadequate, I humbly ask you to stop here, as the program won't work efficiently and a lot of time will be wasted.
 
-Ce projet repose sur **deux fichiers principaux** :
-- `data_processing.py` : utilisé pour le **prétraitement des données**, les **représentations graphiques**, et la **sélection des attributs pertinents**.
-- `construction_DeepLearning.py` : contient le code de **construction du modèle de Deep Learning**.
+This project relies on **two main files**:
+- `data_processing.py`: used for **data preprocessing**, **graphical analysis**, and **relevant feature selection**.
+- `construction_DeepLearning.py`: contains the code for **building the deep learning model**.
 
-➡️ Une fois ces étapes préparatoires réalisées, vous pouvez **lancer l'entraînement du modèle**.
+➡️ Once the preprocessing is complete, you can **start training** the model.
