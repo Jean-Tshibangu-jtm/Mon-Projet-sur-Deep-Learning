@@ -1,5 +1,5 @@
 
-# 🧠 Deep Learning appliqué à la Cybersécurité pour la Détection d’Intrusion
+#  Deep Learning applied to Cybersecurity for the Network Intrusion Detection System
 
 ## 📌 Contexte
 
